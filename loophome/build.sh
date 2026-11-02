@@ -85,15 +85,23 @@ if [ "$MODE" = "--install" ] || [ "$MODE" = "--home" ]; then
         exit 1
     fi
     adb -s "$TV" install -r build/LoopHome.apk
-    # Android, güncellemede Loop Home'un erişilebilirlik servisini listeden düşürüyor; geri ekle.
+    # Android, güncellemeden kısa süre SONRA Loop Home'un erişilebilirlik servisini listeden
+    # düşürüyor (hemen yazılan değeri de eziyor); bekle, ekle, tuttuğunu doğrula.
     SVC="com.mustycetin.loophome/com.mustycetin.loophome.KeyService"
-    CUR="$(adb -s "$TV" shell settings get secure enabled_accessibility_services | tr -d '\r')"
-    case "$CUR" in
-        *"$SVC"*) ;;
-        ""|null) adb -s "$TV" shell settings put secure enabled_accessibility_services "$SVC" ;;
-        *) adb -s "$TV" shell settings put secure enabled_accessibility_services "$SVC:$CUR" ;;
+    for try in 1 2 3 4 5; do
+        sleep 2
+        CUR="$(adb -s "$TV" shell settings get secure enabled_accessibility_services | tr -d '\r')"
+        case "$CUR" in
+            *"$SVC"*) [ "$try" -gt 1 ] && break ;;
+            ""|null) adb -s "$TV" shell settings put secure enabled_accessibility_services "$SVC" ;;
+            *) adb -s "$TV" shell settings put secure enabled_accessibility_services "$SVC:$CUR" ;;
+        esac
+        adb -s "$TV" shell settings put secure accessibility_enabled 1
+    done
+    case "$(adb -s "$TV" shell settings get secure enabled_accessibility_services)" in
+        *"$SVC"*) echo "  erişilebilirlik servisi açık" ;;
+        *) echo "  ⚠ erişilebilirlik servisi eklenemedi; elle: settings put secure enabled_accessibility_services $SVC" >&2 ;;
     esac
-    adb -s "$TV" shell settings put secure accessibility_enabled 1
 fi
 if [ "$MODE" = "--home" ]; then
     adb -s "$TV" shell am force-stop com.mustycetin.loophome

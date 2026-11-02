@@ -186,6 +186,8 @@ if ask "Loop Home kurulsun mu?" E; then
     tv appops set "$LOOPHOME" GET_USAGE_STATS allow
     done_step "Loop Home'a kullanım istatistiği izni" "appops set $LOOPHOME GET_USAGE_STATS default"
     # Home basılı tutma, TV+ tuşu, liste tuşu ve uyku zamanlayıcısı erişilebilirlik servisiyle çalışır.
+    # Android, kurulum/güncellemeden birkaç saniye sonra listeyi yeniden yazıp servisi düşürüyor; bekle.
+    [ "$DRY" = 1 ] || sleep 4
     CUR="$(tvq settings get secure enabled_accessibility_services)"
     case "$CUR" in
         *"$KEYSVC"*) NEW="$CUR" ;;
@@ -194,6 +196,13 @@ if ask "Loop Home kurulsun mu?" E; then
     esac
     tv settings put secure enabled_accessibility_services "$NEW"
     tv settings put secure accessibility_enabled 1
+    if [ "$DRY" != 1 ]; then
+        sleep 3
+        case "$(tvq settings get secure enabled_accessibility_services)" in
+            *"$KEYSVC"*) ;;
+            *) tv settings put secure enabled_accessibility_services "$NEW" ;;
+        esac
+    fi
     done_step "Loop Home erişilebilirlik servisi açıldı" "settings put secure enabled_accessibility_services '${CUR}'"
 
     if has_pkg com.google.android.apps.tv.launcherx && ! is_disabled com.google.android.apps.tv.launcherx; then
