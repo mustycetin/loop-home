@@ -1,0 +1,10 @@
+loophome/build/
+loophome/local/
+.DS_Store
+*.keystore
+*.jks
+keys.properties
+keystore.pass
+config.properties
+tv.conf
+setup/kurulum-kaydi-*.txt

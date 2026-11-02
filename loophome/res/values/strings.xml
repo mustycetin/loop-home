@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Loop Home</string>
+    <string name="key_service_desc">Home tuşuna basılı tutunca açık uygulamaları gösterir.</string>
+</resources>

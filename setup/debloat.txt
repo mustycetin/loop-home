@@ -1,0 +1,29 @@
+# Xiaomi TV Box S (2. nesil, MiTV-AFKR0 / jaws, Google TV 11) için temizlik listesi.
+# Biçim:  işlem | paket | açıklama
+#   kaldir   = pm uninstall -k --user 0   (geri al: cmd package install-existing <paket>)
+#   kapat    = pm disable-user --user 0   (geri al: pm enable <paket>)
+# Satır başındaki "!" = tuzak; setup.sh ayrıca uyarır (aşağıdaki notlara bak).
+# Başka bir cihazda bu paketlerin bir kısmı olmayabilir; olmayanlar atlanır.
+
+kaldir | com.xiaomi.android.tvsetup.partnercustomizer | ! Her açılışta Netflix, Prime, Disney+, Exxen, iQIYI, Digiturk'ü Play Store'dan zorla kurar
+kaldir | android.autoinstalls.config.xioami.mibox3   | Xiaomi'nin otomatik uygulama kurulum ayarları
+kaldir | com.miui.tv.analytics                        | Xiaomi kullanım verisi toplama
+kaldir | com.xiaomi.statistic                         | Xiaomi istatistik/telemetri
+kaldir | com.google.android.feedback                  | Google geri bildirim raporlayıcı
+kaldir | com.google.android.partnersetup              | Google iş ortağı kurulum servisi
+kaldir | com.google.android.play.games                | Google Play Games
+kaldir | com.google.android.youtube.tvmusic           | YouTube Music
+kaldir | com.android.printspooler                     | Yazdırma servisi (TV'de kullanılmaz)
+kaldir | com.google.android.apps.tv.dreamx            | Google TV ekran koruyucusu (Ambient); kaldırınca ekran koruyucu kapanır
+kaldir | com.mitv.gallery                             | Xiaomi galeri
+kaldir | com.mitv.videoplayer                         | Xiaomi video oynatıcı
+kaldir | com.xiaomi.mimusic2                          | Xiaomi müzik
+kaldir | com.xiaomi.mitv.mediaexplorer                | Xiaomi medya gezgini
+kaldir | com.xm.webcontent                            | Xiaomi web içerik servisi
+kaldir | com.mitv.tvhome.atv                          | Xiaomi ana ekran eklentileri
+kaldir | com.mitv.tvhome.michannel                    | Xiaomi kanal önerileri
+kaldir | com.mitv.tvhome.mitvplus                     | Xiaomi TV+ önerileri
+kaldir | com.mitv.tvhome.oemtab                       | Xiaomi ana ekran sekmesi
+kaldir | com.google.android.tungsten.setupwraith      | ! İlk kurulum sihirbazı; Wi-Fi ağı ona aitse kaldırınca Wi-Fi gider
+kapat  | com.netflix.ninja                            | Hazır kurulu Netflix (kullanıyorsan atla)
+kapat  | com.amazon.amazonvideo.livingroom            | Hazır kurulu Prime Video (kullanıyorsan atla)

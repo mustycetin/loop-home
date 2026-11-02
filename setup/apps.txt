@@ -1,0 +1,16 @@
+# setup.sh'nin sunduğu uygulamalar. Her biri ayrı ayrı sorulur.
+# Biçim:  kaynak | kimlik | paket | ad | açıklama
+#   github = GitHub'daki son sürümden kutunun işlemcisine uygun APK indirilir ve kurulur
+#   play   = TV'de Play Store sayfası açılır, "Yükle"ye sen basarsın
+#   osplay = özel durum (aşağıya bak)
+
+github | yuliskov/SmartTube         | org.smarttube.stable             | SmartTube      | Reklamsız, hızlı YouTube istemcisi (Google hesabınla girilebilir)
+github | localsend/localsend        | org.localsend.localsend_app      | LocalSend      | Telefon/bilgisayardan TV'ye yerel ağda dosya gönderme
+github | recloudstream/cloudstream  | com.lagradost.cloudstream3       | CloudStream    | Eklenti tabanlı medya oynatıcı (eklentileri sen seçersin)
+osplay | akinalpfdn/osplay          | com.akinalpfdn.osplay            | Osplay         | TV'yi Mac/Windows bilgisayarın ikinci ekranı yapar
+play   | -                          | com.stremio.one                  | Stremio        | Medya merkezi
+play   | -                          | com.wbd.stream                   | HBO Max        | Resmi HBO Max
+play   | -                          | com.apple.atve.androidtv.appletv | Apple TV       | Resmi Apple TV
+play   | -                          | com.turkcell.ott                 | TV+            | Turkcell TV+
+play   | -                          | com.teamviewer.quicksupport.market | TeamViewer QuickSupport | Uzaktan destek
+play   | -                          | flar2.homebutton                 | Button Mapper  | Kumanda tuşlarını yeniden atama
