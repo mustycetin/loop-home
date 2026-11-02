@@ -317,8 +317,9 @@ say "Home basılı tut = açık uygulamalar, ↑↑↓↓ = gizli menü. Ayrınt
 
 PATREON="https://www.patreon.com/cw/creacet"
 bold "❤️ Destek ol"
-say "Loop Home ücretsiz. İşine yaradıysa geliştirmeye devam edebilmem için Patreon'dan destek olabilirsin:"
-say "  $PATREON"
+say "Loop Home ücretsiz. İşine yaradıysa geliştirmeye devam edebilmem için destek olabilirsin:"
+say "  Patreon:         $PATREON"
+say "  GitHub Sponsors: https://github.com/sponsors/mustycetin"
 if [ "$DRY" != 1 ] && { command -v open >/dev/null || command -v xdg-open >/dev/null; }; then
     if ask "Patreon sayfasını tarayıcıda açayım mı?" H; then
         if command -v open >/dev/null; then open "$PATREON"; else xdg-open "$PATREON" >/dev/null 2>&1; fi

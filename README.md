@@ -1,6 +1,7 @@
 # Loop Home
 
 [![Patreon](https://img.shields.io/badge/Patreon-Destek%20Ol-F96854?logo=patreon&logoColor=white)](https://www.patreon.com/cw/creacet)
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-Sponsor%20Ol-EA4AAA?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/mustycetin)
 
 Xiaomi TV Box S (2. nesil) için sade, hızlı, reklamsız bir ana ekran ve kutuyu adım adım
 temizleyip kuran bir kurulum betiği.
@@ -41,9 +42,10 @@ Gradle'sız, saf Java: `loophome/build.sh`. Bkz. [docs/GELISTIRME.md](docs/GELIS
 
 ## ❤️ Destek Ol
 
-Bu proje işine yaradıysa, geliştirmeye devam edebilmem için Patreon'dan destek olabilirsin:
+Bu proje işine yaradıysa, geliştirmeye devam edebilmem için Patreon'dan ya da GitHub Sponsors'tan destek olabilirsin:
 
 [![Patreon](https://img.shields.io/badge/Patreon-Destek%20Ol-F96854?logo=patreon&logoColor=white&style=for-the-badge)](https://www.patreon.com/cw/creacet)
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-Sponsor%20Ol-EA4AAA?logo=githubsponsors&logoColor=white&style=for-the-badge)](https://github.com/sponsors/mustycetin)
 
 ## Lisanslar ve krediler
 
